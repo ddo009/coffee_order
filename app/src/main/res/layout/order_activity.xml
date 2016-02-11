@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -57,13 +58,33 @@
         android:id="@+id/checkbox_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="휘핑크림 추가됌"
+        android:text="휘핑크림 추가됨"
         android:visibility="gone" />
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content" -->
-        <!--/>-->
-    <!-- 몇잔을 주문하는지 나올 주문서가 위치할 텍스트뷰-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="주문한 갯수 : " />
+
+        <TextView
+            android:id="@+id/text_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/complete_order_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="주문 완료" />
+
 
 </LinearLayout>

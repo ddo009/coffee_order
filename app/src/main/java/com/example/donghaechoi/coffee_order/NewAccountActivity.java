@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * Created by donghaechoi on 2016. 2. 9..
@@ -34,12 +35,17 @@ public class NewAccountActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent();
-        intent.putExtra("newid", mEditNewId.getText().toString());
-        intent.putExtra("newpassword", mEditNewPassword.getText().toString());
+        if (mEditNewId.length() < 6) {
+            Toast.makeText(NewAccountActivity.this, "아이디는 6글자 이상이어야 합니다", Toast.LENGTH_SHORT).show();
+        } else if (mEditNewPassword.length() < 6) {
+            Toast.makeText(NewAccountActivity.this, "비밀번호는 6글자 이상이어야 합니다.", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent();
+            intent.putExtra("newid", mEditNewId.getText().toString());
+            intent.putExtra("newpassword", mEditNewPassword.getText().toString());
 //        intent.putExtra("newname", mEditNewName.getText().toString());
-        setResult(RESULT_OK, intent);
-        finish();
-
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
 }
